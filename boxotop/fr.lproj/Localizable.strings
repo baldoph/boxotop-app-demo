@@ -1,0 +1,30 @@
+/* 
+  Localizable.strings
+  boxotop
+
+  Created by Baldoph on 31/10/2018.
+  Copyright © 2018 Baldoph Pourprix. All rights reserved.
+*/
+
+"search-bar-placeholder" = "Rechercher des films";
+"empty-history-header" = "Historique vide";
+"empty-history-subtitle" = "Les films recherchés apparaissent ici";
+"no-results-title" = "Pas de résultats 🕵️‍♀️";
+
+"details-controller-title" = "Détails";
+"details-release-date-title" = "Date de sortie";
+"details-critics-ratings-title" = "Critiques";
+"details-audience-ratings-title" = "Audience";
+"details-user-rating-title" = "Ma note";
+"details-director-title" = "Réalisateur";
+"details-cast-title" = "Distribution";
+"details-plot-title" = "Synopsis";
+
+"not-applicable-label" = "ND";
+
+"clear-history-button-title" = "Effacer l'historique";
+
+"error-alert-title" = "Erreur";
+
+"cancel-button-action" = "Annuler";
+"close-button-action" = "Fermer";

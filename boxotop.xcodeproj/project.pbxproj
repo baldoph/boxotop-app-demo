@@ -12,7 +12,6 @@
 		932DE7192189CECD00447ED3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 932DE7182189CECD00447ED3 /* Assets.xcassets */; };
 		932DE71C2189CECD00447ED3 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 932DE71A2189CECD00447ED3 /* LaunchScreen.storyboard */; };
 		932DE7252189D6EC00447ED3 /* Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 932DE7242189D6EC00447ED3 /* Theme.swift */; };
-		932DE7272189D73600447ED3 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 932DE7262189D73600447ED3 /* Localizable.strings */; };
 		932DE72A2189D7AA00447ED3 /* String+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 932DE7292189D7AA00447ED3 /* String+Extensions.swift */; };
 		932DE72C2189D7CE00447ED3 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 932DE72B2189D7CE00447ED3 /* SearchViewController.swift */; };
 		932DE7312189D80A00447ED3 /* DetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 932DE7302189D80A00447ED3 /* DetailsViewController.swift */; };
@@ -41,6 +40,7 @@
 		93ED9648218B5078003C1BE7 /* NetworkActivityIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93ED9647218B5078003C1BE7 /* NetworkActivityIndicator.swift */; };
 		93ED964C218B581F003C1BE7 /* Cosmos.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 93ED964B218B581F003C1BE7 /* Cosmos.framework */; };
 		93ED964E218B73CC003C1BE7 /* Cosmos+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93ED964D218B73CC003C1BE7 /* Cosmos+Extensions.swift */; };
+		93ED964F218B8ABE003C1BE7 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 93ED9651218B8ABE003C1BE7 /* Localizable.strings */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -51,7 +51,6 @@
 		932DE71B2189CECD00447ED3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		932DE71D2189CECD00447ED3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		932DE7242189D6EC00447ED3 /* Theme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Theme.swift; sourceTree = "<group>"; };
-		932DE7262189D73600447ED3 /* Localizable.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; path = Localizable.strings; sourceTree = "<group>"; };
 		932DE7292189D7AA00447ED3 /* String+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Extensions.swift"; sourceTree = "<group>"; };
 		932DE72B2189D7CE00447ED3 /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
 		932DE7302189D80A00447ED3 /* DetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsViewController.swift; sourceTree = "<group>"; };
@@ -84,6 +83,8 @@
 		93ED9647218B5078003C1BE7 /* NetworkActivityIndicator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkActivityIndicator.swift; sourceTree = "<group>"; };
 		93ED964B218B581F003C1BE7 /* Cosmos.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cosmos.framework; path = Carthage/Build/iOS/Cosmos.framework; sourceTree = "<group>"; };
 		93ED964D218B73CC003C1BE7 /* Cosmos+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Cosmos+Extensions.swift"; sourceTree = "<group>"; };
+		93ED9650218B8ABE003C1BE7 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
+		93ED9652218B8AD4003C1BE7 /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/Localizable.strings; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -140,7 +141,7 @@
 				932DE7182189CECD00447ED3 /* Assets.xcassets */,
 				932DE71A2189CECD00447ED3 /* LaunchScreen.storyboard */,
 				932DE71D2189CECD00447ED3 /* Info.plist */,
-				932DE7262189D73600447ED3 /* Localizable.strings */,
+				93ED9651218B8ABE003C1BE7 /* Localizable.strings */,
 			);
 			path = boxotop;
 			sourceTree = "<group>";
@@ -283,6 +284,7 @@
 			knownRegions = (
 				en,
 				Base,
+				fr,
 			);
 			mainGroup = 932DE7052189CECB00447ED3;
 			productRefGroup = 932DE70F2189CECB00447ED3 /* Products */;
@@ -300,7 +302,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				932DE71C2189CECD00447ED3 /* LaunchScreen.storyboard in Resources */,
-				932DE7272189D73600447ED3 /* Localizable.strings in Resources */,
+				93ED964F218B8ABE003C1BE7 /* Localizable.strings in Resources */,
 				932DE7192189CECD00447ED3 /* Assets.xcassets in Resources */,
 				932DE7172189CECB00447ED3 /* Main.storyboard in Resources */,
 			);
@@ -384,6 +386,15 @@
 				932DE71B2189CECD00447ED3 /* Base */,
 			);
 			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+		93ED9651218B8ABE003C1BE7 /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				93ED9650218B8ABE003C1BE7 /* en */,
+				93ED9652218B8AD4003C1BE7 /* fr */,
+			);
+			name = Localizable.strings;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
