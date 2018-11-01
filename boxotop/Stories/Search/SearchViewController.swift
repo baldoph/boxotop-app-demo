@@ -45,7 +45,19 @@ class SearchViewController: UITableViewController, Bindable {
             }
         }).disposed(by: disposeBag)
 
-        print(topLayoutGuide.length)
+        clearHistoryButton.rx.tap.asDriver().drive(onNext: { [unowned self] _ in
+            let actionSheet = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
+            actionSheet.addAction(UIAlertAction(title: "clear-history-button-title".localized, style: .destructive, handler: { _ in
+                self.viewModel.clearHistory()
+            }))
+            actionSheet.addAction(UIAlertAction(title: "cancel-button-action".localized, style: .cancel, handler: nil))
+            self.present(actionSheet, animated: true, completion: nil)
+
+        }).disposed(by: disposeBag)
+    }
+
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
         noResultsTopConstraint.constant = 64
     }
 
@@ -62,14 +74,14 @@ class SearchViewController: UITableViewController, Bindable {
         searchBar.rx.textDidBeginEditing.map { true }.bind(to: viewModel.isSearchBarFirstResponder).disposed(by: disposeBag)
         searchBar.rx.textDidEndEditing.map { false }.bind(to: viewModel.isSearchBarFirstResponder).disposed(by: disposeBag)
 
-        viewModel.results.asDriver().drive(onNext: { [unowned self] _ in
+        viewModel.results.asObservable().subscribe(onNext: { [unowned self] _ in
             self.tableView.reloadData()
         }).disposed(by: disposeBag)
 
-        viewModel.showEmptyBackground.asDriver().drive(onNext: { [unowned self] show in
-            UIView.animate(withDuration: 0.3, animations: {
+        viewModel.showEmptyBackground.asObservable().subscribe(onNext: { [unowned self] show in
+            UIView.animate(withDuration: 0.3, delay: 0.02, options: .beginFromCurrentState, animations: {
                 self.emptyTableHeader.alpha = show ? 1 : 0
-            })
+            }, completion: nil)
         }).disposed(by: disposeBag)
 
         viewModel.showNoResultsLabel.asObservable().map { !$0 }.bind(to: noResultsLabel.rx.isHidden).disposed(by: disposeBag)

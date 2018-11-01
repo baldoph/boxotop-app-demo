@@ -10,7 +10,9 @@ import RxSwift
 
 class ViewModel {
     let disposeBag = DisposeBag()
+    let error = Variable<Error?>(nil)
 
     func handle(error: Error) {
+        self.error.value = error
     }
 }

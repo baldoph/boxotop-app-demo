@@ -30,10 +30,11 @@ struct WebService {
                     observer.onNext(response.data)
                     observer.onCompleted()
                 }
-                NAIManager.operationFinished()
+
+                NetworkActivityIndicator.sharedInstance().hide()
             }
 
-            NAIManager.operationStarted()
+            NetworkActivityIndicator.sharedInstance().show()
 
             return Disposables.create {
                 http?.cancel()
@@ -51,10 +52,11 @@ struct WebService {
                     observer.onNext(response.data)
                     observer.onCompleted()
                 }
-                NAIManager.operationFinished()
+                
+                NetworkActivityIndicator.sharedInstance().hide()
             }
 
-            NAIManager.operationStarted()
+            NetworkActivityIndicator.sharedInstance().show()
 
             return Disposables.create {
                 http?.cancel()

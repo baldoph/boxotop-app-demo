@@ -6,9 +6,25 @@
   Copyright © 2018 Baldoph Pourprix. All rights reserved.
 */
 
-
-"search-controller-title" = "Recent searches";
 "search-bar-placeholder" = "Search Movies";
 "empty-history-header" = "Empty history";
 "empty-history-subtitle" = "Movies you lookup appear here";
 "no-results-title" = "No results 🕵️‍♀️";
+
+"details-controller-title" = "Details";
+"details-release-date-title" = "Release date";
+"details-critics-ratings-title" = "Critics";
+"details-audience-ratings-title" = "Audience";
+"details-user-rating-title" = "My rating";
+"details-director-title" = "Director";
+"details-cast-title" = "Cast";
+"details-plot-title" = "Plot";
+
+"not-applicable-label" = "N/A";
+
+"clear-history-button-title" = "Clear history";
+
+"error-alert-title" = "Error";
+
+"cancel-button-action" = "Cancel";
+"close-button-action" = "Close";

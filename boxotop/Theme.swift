@@ -10,5 +10,5 @@ import UIKit
 
 struct Theme {
     static let primaryColor = UIColor(red: 236/255, green: 72/255, blue: 47/255, alpha: 1)
-    static let navTitleColor = UIColor.black
+    static let secondaryColor = UIColor(red: 250/255, green: 169/255, blue: 0, alpha: 1)
 }

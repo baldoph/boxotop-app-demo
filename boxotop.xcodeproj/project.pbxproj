@@ -19,14 +19,12 @@
 		932DE7332189D95700447ED3 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 932DE7322189D95700447ED3 /* Constants.swift */; };
 		932DE7422189DA8600447ED3 /* RealmSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 932DE7362189DA8600447ED3 /* RealmSwift.framework */; };
 		932DE7432189DA8600447ED3 /* SwinjectStoryboard.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 932DE7372189DA8600447ED3 /* SwinjectStoryboard.framework */; };
-		932DE7442189DA8600447ED3 /* Reachability.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 932DE7382189DA8600447ED3 /* Reachability.framework */; };
 		932DE7452189DA8600447ED3 /* SwiftHTTP.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 932DE7392189DA8600447ED3 /* SwiftHTTP.framework */; };
 		932DE7462189DA8700447ED3 /* TSAO.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 932DE73A2189DA8600447ED3 /* TSAO.framework */; };
 		932DE7472189DA8700447ED3 /* RxCocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 932DE73B2189DA8600447ED3 /* RxCocoa.framework */; };
 		932DE7492189DA8700447ED3 /* RxSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 932DE73D2189DA8600447ED3 /* RxSwift.framework */; };
 		932DE74A2189DA8700447ED3 /* Realm.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 932DE73E2189DA8600447ED3 /* Realm.framework */; };
 		932DE74B2189DA8700447ED3 /* Swinject.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 932DE73F2189DA8600447ED3 /* Swinject.framework */; };
-		932DE74C2189DA8700447ED3 /* SnapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 932DE7402189DA8600447ED3 /* SnapKit.framework */; };
 		932DE7532189DBD700447ED3 /* ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 932DE7522189DBD700447ED3 /* ViewModel.swift */; };
 		932DE7552189DC1B00447ED3 /* Service.swift in Sources */ = {isa = PBXBuildFile; fileRef = 932DE7542189DC1B00447ED3 /* Service.swift */; };
 		932DE7572189DD0200447ED3 /* Setupable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 932DE7562189DD0200447ED3 /* Setupable.swift */; };
@@ -40,7 +38,9 @@
 		932DE769218A0E2C00447ED3 /* SearchMovieCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 932DE768218A0E2C00447ED3 /* SearchMovieCell.swift */; };
 		932DE76B218A193B00447ED3 /* PosterService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 932DE76A218A193B00447ED3 /* PosterService.swift */; };
 		93758424218B2ED5005BB714 /* Singleton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93758423218B2ED4005BB714 /* Singleton.swift */; };
-		93ED9646218B4EB6003C1BE7 /* NetworkActivityIndicatorManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93ED9645218B4EB6003C1BE7 /* NetworkActivityIndicatorManager.swift */; };
+		93ED9648218B5078003C1BE7 /* NetworkActivityIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93ED9647218B5078003C1BE7 /* NetworkActivityIndicator.swift */; };
+		93ED964C218B581F003C1BE7 /* Cosmos.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 93ED964B218B581F003C1BE7 /* Cosmos.framework */; };
+		93ED964E218B73CC003C1BE7 /* Cosmos+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93ED964D218B73CC003C1BE7 /* Cosmos+Extensions.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -81,7 +81,9 @@
 		932DE768218A0E2C00447ED3 /* SearchMovieCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchMovieCell.swift; sourceTree = "<group>"; };
 		932DE76A218A193B00447ED3 /* PosterService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PosterService.swift; sourceTree = "<group>"; };
 		93758423218B2ED4005BB714 /* Singleton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Singleton.swift; sourceTree = "<group>"; };
-		93ED9645218B4EB6003C1BE7 /* NetworkActivityIndicatorManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkActivityIndicatorManager.swift; sourceTree = "<group>"; };
+		93ED9647218B5078003C1BE7 /* NetworkActivityIndicator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkActivityIndicator.swift; sourceTree = "<group>"; };
+		93ED964B218B581F003C1BE7 /* Cosmos.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cosmos.framework; path = Carthage/Build/iOS/Cosmos.framework; sourceTree = "<group>"; };
+		93ED964D218B73CC003C1BE7 /* Cosmos+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Cosmos+Extensions.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -89,12 +91,11 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				932DE7442189DA8600447ED3 /* Reachability.framework in Frameworks */,
 				932DE74A2189DA8700447ED3 /* Realm.framework in Frameworks */,
 				932DE7422189DA8600447ED3 /* RealmSwift.framework in Frameworks */,
 				932DE7472189DA8700447ED3 /* RxCocoa.framework in Frameworks */,
+				93ED964C218B581F003C1BE7 /* Cosmos.framework in Frameworks */,
 				932DE7492189DA8700447ED3 /* RxSwift.framework in Frameworks */,
-				932DE74C2189DA8700447ED3 /* SnapKit.framework in Frameworks */,
 				932DE7452189DA8600447ED3 /* SwiftHTTP.framework in Frameworks */,
 				932DE74B2189DA8700447ED3 /* Swinject.framework in Frameworks */,
 				932DE7432189DA8600447ED3 /* SwinjectStoryboard.framework in Frameworks */,
@@ -157,6 +158,7 @@
 			isa = PBXGroup;
 			children = (
 				932DE7292189D7AA00447ED3 /* String+Extensions.swift */,
+				93ED964D218B73CC003C1BE7 /* Cosmos+Extensions.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -192,6 +194,7 @@
 		932DE7342189DA8600447ED3 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				93ED964B218B581F003C1BE7 /* Cosmos.framework */,
 				932DE7382189DA8600447ED3 /* Reachability.framework */,
 				932DE73E2189DA8600447ED3 /* Realm.framework */,
 				932DE7362189DA8600447ED3 /* RealmSwift.framework */,
@@ -232,7 +235,7 @@
 		93ED9642218B4E2C003C1BE7 /* Third party */ = {
 			isa = PBXGroup;
 			children = (
-				93ED9645218B4EB6003C1BE7 /* NetworkActivityIndicatorManager.swift */,
+				93ED9647218B5078003C1BE7 /* NetworkActivityIndicator.swift */,
 			);
 			path = "Third party";
 			sourceTree = "<group>";
@@ -320,10 +323,9 @@
 				"$(SRCROOT)/Carthage/Build/iOS/RxCocoa.framework",
 				"$(SRCROOT)/Carthage/Build/iOS/Swinject.framework",
 				"$(SRCROOT)/Carthage/Build/iOS/SwinjectStoryboard.framework",
-				"$(SRCROOT)/Carthage/Build/iOS/SnapKit.framework",
 				"$(SRCROOT)/Carthage/Build/iOS/TSAO.framework",
 				"$(SRCROOT)/Carthage/Build/iOS/SwiftHTTP.framework",
-				"$(SRCROOT)/Carthage/Build/iOS/Reachability.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/Cosmos.framework",
 			);
 			name = Carthage;
 			outputFileListPaths = (
@@ -341,11 +343,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				93ED964E218B73CC003C1BE7 /* Cosmos+Extensions.swift in Sources */,
 				932DE72A2189D7AA00447ED3 /* String+Extensions.swift in Sources */,
 				932DE7592189DDAB00447ED3 /* BindableController.swift in Sources */,
 				93758424218B2ED5005BB714 /* Singleton.swift in Sources */,
 				932DE7612189EA2F00447ED3 /* WebService.swift in Sources */,
 				932DE7252189D6EC00447ED3 /* Theme.swift in Sources */,
+				93ED9648218B5078003C1BE7 /* NetworkActivityIndicator.swift in Sources */,
 				932DE7672189FBD200447ED3 /* SearchResponse.swift in Sources */,
 				932DE75F2189E19B00447ED3 /* Dependencies.swift in Sources */,
 				932DE76B218A193B00447ED3 /* PosterService.swift in Sources */,
@@ -360,7 +364,6 @@
 				932DE75B2189DEF000447ED3 /* DetailsViewModel.swift in Sources */,
 				932DE7632189EB0700447ED3 /* Movie.swift in Sources */,
 				932DE769218A0E2C00447ED3 /* SearchMovieCell.swift in Sources */,
-				93ED9646218B4EB6003C1BE7 /* NetworkActivityIndicatorManager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -37,5 +37,12 @@ extension Bindable where Self: UIViewController {
         self.rx.methodInvoked(#selector(viewDidLoad)).take(1).bind { [unowned self] _ in
             self.bind(viewModel: viewModel)
         }.disposed(by: disposeBag)
+        viewModel.error.asDriver().drive(onNext: { error in
+            if let error = error {
+                let alertView = UIAlertController(title: "error-alert-title".localized, message: error.localizedDescription, preferredStyle: .alert)
+                alertView.addAction(UIAlertAction(title: "close-button-action".localized, style: .cancel, handler: nil))
+                self.present(alertView, animated: true, completion: nil)
+            }
+        }).disposed(by: disposeBag)
     }
 }

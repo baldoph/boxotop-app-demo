@@ -2,7 +2,6 @@ github "ReactiveX/RxSwift" ~> 4.0
 github "realm/realm-cocoa"
 github "Swinject/Swinject" ~> 2.0.0
 github "Swinject/SwinjectStoryboard" ~> 2.0
-github "SnapKit/SnapKit" ~> 4.0
 github "kballard/swift-tsao"
 github "daltoniam/SwiftHTTP" >= 2.0.0
-github "ashleymills/Reachability.swift"
+github "evgenyneu/Cosmos" ~> 17.0
