@@ -30,7 +30,10 @@ struct WebService {
                     observer.onNext(response.data)
                     observer.onCompleted()
                 }
+                NAIManager.operationFinished()
             }
+
+            NAIManager.operationStarted()
 
             return Disposables.create {
                 http?.cancel()
@@ -48,7 +51,10 @@ struct WebService {
                     observer.onNext(response.data)
                     observer.onCompleted()
                 }
+                NAIManager.operationFinished()
             }
+
+            NAIManager.operationStarted()
 
             return Disposables.create {
                 http?.cancel()

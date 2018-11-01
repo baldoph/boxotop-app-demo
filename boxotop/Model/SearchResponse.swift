@@ -9,9 +9,9 @@
 import Foundation
 
 struct SearchResponse: Codable {
-    var search: [Movie]
+    var movies: [Movie]
 
     enum CodingKeys : String, CodingKey {
-        case search = "Search"
+        case movies = "Search"
     }
 }

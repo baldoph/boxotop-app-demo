@@ -9,4 +9,5 @@
 import Foundation
 
 class DetailsViewModel: ViewModel {
+    var movie: Movie?
 }

@@ -9,3 +9,6 @@
 
 "search-controller-title" = "Recent searches";
 "search-bar-placeholder" = "Search Movies";
+"empty-history-header" = "Empty history";
+"empty-history-subtitle" = "Movies you lookup appear here";
+"no-results-title" = "No results 🕵️‍♀️";

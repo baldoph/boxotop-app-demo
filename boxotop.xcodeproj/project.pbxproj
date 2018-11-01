@@ -37,6 +37,10 @@
 		932DE7612189EA2F00447ED3 /* WebService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 932DE7602189EA2F00447ED3 /* WebService.swift */; };
 		932DE7632189EB0700447ED3 /* Movie.swift in Sources */ = {isa = PBXBuildFile; fileRef = 932DE7622189EB0700447ED3 /* Movie.swift */; };
 		932DE7672189FBD200447ED3 /* SearchResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 932DE7662189FBD200447ED3 /* SearchResponse.swift */; };
+		932DE769218A0E2C00447ED3 /* SearchMovieCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 932DE768218A0E2C00447ED3 /* SearchMovieCell.swift */; };
+		932DE76B218A193B00447ED3 /* PosterService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 932DE76A218A193B00447ED3 /* PosterService.swift */; };
+		93758424218B2ED5005BB714 /* Singleton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93758423218B2ED4005BB714 /* Singleton.swift */; };
+		93ED9646218B4EB6003C1BE7 /* NetworkActivityIndicatorManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93ED9645218B4EB6003C1BE7 /* NetworkActivityIndicatorManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -74,6 +78,10 @@
 		932DE7602189EA2F00447ED3 /* WebService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebService.swift; sourceTree = "<group>"; };
 		932DE7622189EB0700447ED3 /* Movie.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Movie.swift; sourceTree = "<group>"; };
 		932DE7662189FBD200447ED3 /* SearchResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResponse.swift; sourceTree = "<group>"; };
+		932DE768218A0E2C00447ED3 /* SearchMovieCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchMovieCell.swift; sourceTree = "<group>"; };
+		932DE76A218A193B00447ED3 /* PosterService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PosterService.swift; sourceTree = "<group>"; };
+		93758423218B2ED4005BB714 /* Singleton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Singleton.swift; sourceTree = "<group>"; };
+		93ED9645218B4EB6003C1BE7 /* NetworkActivityIndicatorManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkActivityIndicatorManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -117,34 +125,32 @@
 		932DE7102189CECB00447ED3 /* boxotop */ = {
 			isa = PBXGroup;
 			children = (
-				932DE7232189D38800447ED3 /* model */,
 				932DE7112189CECB00447ED3 /* AppDelegate.swift */,
 				932DE7242189D6EC00447ED3 /* Theme.swift */,
 				932DE7322189D95700447ED3 /* Constants.swift */,
-				932DE7522189DBD700447ED3 /* ViewModel.swift */,
-				932DE7542189DC1B00447ED3 /* Service.swift */,
-				932DE7562189DD0200447ED3 /* Setupable.swift */,
-				932DE7582189DDAB00447ED3 /* BindableController.swift */,
 				932DE75E2189E19B00447ED3 /* Dependencies.swift */,
-				932DE7602189EA2F00447ED3 /* WebService.swift */,
-				932DE7622189EB0700447ED3 /* Movie.swift */,
-				932DE7662189FBD200447ED3 /* SearchResponse.swift */,
+				93758425218B48F7005BB714 /* Base */,
+				932DE7282189D79700447ED3 /* Extensions */,
+				932DE7232189D38800447ED3 /* Model */,
+				93758426218B4917005BB714 /* Services */,
 				932DE72D2189D7D400447ED3 /* Stories */,
+				93ED9642218B4E2C003C1BE7 /* Third party */,
 				932DE7152189CECB00447ED3 /* Main.storyboard */,
 				932DE7182189CECD00447ED3 /* Assets.xcassets */,
 				932DE71A2189CECD00447ED3 /* LaunchScreen.storyboard */,
 				932DE71D2189CECD00447ED3 /* Info.plist */,
 				932DE7262189D73600447ED3 /* Localizable.strings */,
-				932DE7282189D79700447ED3 /* Extensions */,
 			);
 			path = boxotop;
 			sourceTree = "<group>";
 		};
-		932DE7232189D38800447ED3 /* model */ = {
+		932DE7232189D38800447ED3 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				932DE7662189FBD200447ED3 /* SearchResponse.swift */,
+				932DE7622189EB0700447ED3 /* Movie.swift */,
 			);
-			path = model;
+			path = Model;
 			sourceTree = "<group>";
 		};
 		932DE7282189D79700447ED3 /* Extensions */ = {
@@ -169,6 +175,7 @@
 			children = (
 				932DE72B2189D7CE00447ED3 /* SearchViewController.swift */,
 				932DE75C2189DF5C00447ED3 /* SearchViewModel.swift */,
+				932DE768218A0E2C00447ED3 /* SearchMovieCell.swift */,
 			);
 			path = Search;
 			sourceTree = "<group>";
@@ -199,6 +206,35 @@
 				932DE73A2189DA8600447ED3 /* TSAO.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		93758425218B48F7005BB714 /* Base */ = {
+			isa = PBXGroup;
+			children = (
+				932DE7542189DC1B00447ED3 /* Service.swift */,
+				932DE7522189DBD700447ED3 /* ViewModel.swift */,
+				932DE7562189DD0200447ED3 /* Setupable.swift */,
+				932DE7582189DDAB00447ED3 /* BindableController.swift */,
+				93758423218B2ED4005BB714 /* Singleton.swift */,
+			);
+			path = Base;
+			sourceTree = "<group>";
+		};
+		93758426218B4917005BB714 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				932DE7602189EA2F00447ED3 /* WebService.swift */,
+				932DE76A218A193B00447ED3 /* PosterService.swift */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		93ED9642218B4E2C003C1BE7 /* Third party */ = {
+			isa = PBXGroup;
+			children = (
+				93ED9645218B4EB6003C1BE7 /* NetworkActivityIndicatorManager.swift */,
+			);
+			path = "Third party";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -307,10 +343,12 @@
 			files = (
 				932DE72A2189D7AA00447ED3 /* String+Extensions.swift in Sources */,
 				932DE7592189DDAB00447ED3 /* BindableController.swift in Sources */,
+				93758424218B2ED5005BB714 /* Singleton.swift in Sources */,
 				932DE7612189EA2F00447ED3 /* WebService.swift in Sources */,
 				932DE7252189D6EC00447ED3 /* Theme.swift in Sources */,
 				932DE7672189FBD200447ED3 /* SearchResponse.swift in Sources */,
 				932DE75F2189E19B00447ED3 /* Dependencies.swift in Sources */,
+				932DE76B218A193B00447ED3 /* PosterService.swift in Sources */,
 				932DE72C2189D7CE00447ED3 /* SearchViewController.swift in Sources */,
 				932DE75D2189DF5C00447ED3 /* SearchViewModel.swift in Sources */,
 				932DE7122189CECB00447ED3 /* AppDelegate.swift in Sources */,
@@ -321,6 +359,8 @@
 				932DE7332189D95700447ED3 /* Constants.swift in Sources */,
 				932DE75B2189DEF000447ED3 /* DetailsViewModel.swift in Sources */,
 				932DE7632189EB0700447ED3 /* Movie.swift in Sources */,
+				932DE769218A0E2C00447ED3 /* SearchMovieCell.swift in Sources */,
+				93ED9646218B4EB6003C1BE7 /* NetworkActivityIndicatorManager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -473,6 +513,7 @@
 					"$(PROJECT_DIR)/Carthage/Build/iOS",
 				);
 				INFOPLIST_FILE = boxotop/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -495,6 +536,7 @@
 					"$(PROJECT_DIR)/Carthage/Build/iOS",
 				);
 				INFOPLIST_FILE = boxotop/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

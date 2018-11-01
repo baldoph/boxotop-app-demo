@@ -10,9 +10,9 @@ import Foundation
 import RealmSwift
 
 class Movie: Object, Codable {
-    @objc dynamic var title: String?
-    @objc dynamic var year: String?
-    @objc dynamic var id: String?
+    @objc dynamic var title: String = ""
+    @objc dynamic var year: String = ""
+    @objc dynamic var id: String = ""
     @objc dynamic var posterURL: String?
 
     override static func primaryKey() -> String? {
