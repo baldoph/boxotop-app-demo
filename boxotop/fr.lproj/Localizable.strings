@@ -10,6 +10,7 @@
 "empty-history-header" = "Historique vide";
 "empty-history-subtitle" = "Les films recherchés apparaissent ici";
 "no-results-title" = "Pas de résultats 🕵️‍♀️";
+"history-section-title" = "Précédentes visites";
 
 "details-controller-title" = "Détails";
 "details-release-date-title" = "Date de sortie";

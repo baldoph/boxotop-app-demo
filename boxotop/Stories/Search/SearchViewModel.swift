@@ -18,6 +18,7 @@ class SearchViewModel: ViewModel {
     let showEmptyBackground: Observable<Bool>
 
     var results = Variable<[Movie]>([])
+    var sectionTitle: String?
 
     var persistedMovies: Results<Movie>? = {
         if let realm = try? Realm() {
@@ -27,6 +28,7 @@ class SearchViewModel: ViewModel {
     }()
 
     override init() {
+        // create obervables
         clearHistoryButtonEnabled = Observable.combineLatest(searchInput.asObservable(), isSearchBarFirstResponder.asObservable(), results.asObservable(), resultSelector: { (searchInput, isSearchBarFirstResponder, results) -> Bool in
             return (searchInput?.isEmpty ?? true) && !isSearchBarFirstResponder && !results.isEmpty
         })
@@ -35,58 +37,56 @@ class SearchViewModel: ViewModel {
             return !isSearchBarFirstResponder && results.isEmpty && (searchInput == nil || searchInput!.isEmpty)
         })
 
-        results.value = persistedMovies?.map { $0 } ?? []
-
         super.init()
 
+        // bind search input changes
         searchInput.asObservable().flatMap { value -> Observable<String> in
+            self.showNoResultsLabel.value = false // hide label on input changes
             if value == nil || value!.isEmpty {
-                if self.isSearchBarFirstResponder.value { self.results.value = [] }
+                if self.isSearchBarFirstResponder.value { self.results.value = [] } // clear list on empty input
                 return Observable.never()
             }
-            self.showNoResultsLabel.value = false
             return Observable.from(optional: value)
-        }.debounce(0.2, scheduler: MainScheduler.instance).bind { [unowned self] value in
-
-            WebService.search(with: value).subscribe(onNext: { [unowned self] data in
-                DispatchQueue.main.async {
-                    let decoder = JSONDecoder()
-                    do {
-                        let response = try decoder.decode(SearchResponse.self, from: data)
-                        if self.isSearchBarFirstResponder.value {
-                            self.results.value = response.movies
-                        }
-                    } catch { // Error when optional "Search" key is not present in JSON (case where no movies are returned)
-                        // For simplicity, we're not overriding init method of codables objects but just handling "no movies" case here
-                        self.results.value = []
-                        if value.count > 1 {
-                            self.showNoResultsLabel.value = true
-                        }
-                    }
+        }.debounce(0.2, scheduler: MainScheduler.instance).bind { [unowned self] value in // add debounce to reduce web requests overhead
+            APIService.search(with: value).subscribe(onNext: { [unowned self] searchResponse in // request movie list from API
+                if self.isSearchBarFirstResponder.value { // still searching for movies
+                    self.results.value = searchResponse.movies
                 }
             }, onError: { [unowned self] error in
-                DispatchQueue.main.async {
+                switch error {
+                case DecodingError.keyNotFound(SearchResponse.CodingKeys.movies, _):
+                    // error when optional "Search" key is not present in JSON (case where search returns no results)
+                    // for simplicity, we're not overriding init method of Codable SearchResponse objects but just handling "no movies" case here
+                    self.results.value = []
+                    if value.count > 1 {
+                        self.showNoResultsLabel.value = true
+                    }
+                default:
                     self.handle(error: error)
                 }
             }).disposed(by: self.disposeBag)
         }.disposed(by: disposeBag)
 
         isSearchBarFirstResponder.asObservable().subscribe(onNext: { [unowned self] isFirst in
-            if isFirst && (self.searchInput.value == nil || self.searchInput.value!.isEmpty) {
+            if isFirst && (self.searchInput.value == nil || self.searchInput.value!.isEmpty) { // empty table view on search bar become first responder
+                self.sectionTitle = nil
                 self.results.value = []
-            } else if !isFirst && (self.searchInput.value == nil || self.searchInput.value!.isEmpty) {
-                self.results.value = self.persistedMovies?.map { $0 } ?? []
+            } else if !isFirst && (self.searchInput.value == nil || self.searchInput.value!.isEmpty) { // fall back to persisted movies list when search bar is cleared and resigned first responder
+                let persistedMovies =  self.persistedMovies?.map { $0 } ?? []
+                if persistedMovies.count > 0 {
+                    self.sectionTitle = "history-section-title".localized
+                }
+                self.results.value = persistedMovies
             }
         }).disposed(by: disposeBag)
     }
 
     func clearHistory() {
         guard let movies = persistedMovies, let realm = try? Realm() else { return }
-
         try? realm.write {
             realm.delete(movies)
         }
-
+        sectionTitle = nil
         results.value = []
     }
 }

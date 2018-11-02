@@ -22,13 +22,6 @@ class DetailsViewModel: ViewModel {
     var criticsRating = Variable<Double?>(nil)
     var audienceRating = Variable<Double?>(nil)
 
-    private static let decodingDateFormatter: DateFormatter = {
-        let formatter = DateFormatter()
-        formatter.dateFormat = "dd MMM yyyy"
-        formatter.locale = Locale(identifier: "en")
-        return formatter
-    }()
-
     private static let displayDateFormatter: DateFormatter = {
         let formatter = DateFormatter()
         formatter.dateStyle = .long
@@ -45,24 +38,17 @@ class DetailsViewModel: ViewModel {
     var movie: Movie? {
         didSet {
             // fetch complete info if necessary
-            if let movie = movie, !movie.isComplete {
-                WebService.get(with: movie.id).subscribe(onNext: { [unowned self] data in
-                    DispatchQueue.main.async {
-                        let decoder = JSONDecoder()
-                        decoder.dateDecodingStrategy = .formatted(DetailsViewModel.decodingDateFormatter)
-                        do {
-                            self.movie = try decoder.decode(Movie.self, from: data)
-                        } catch {
-                            print(error)
-                        }
-                    }
+            if let movie = movie, !movie.isComplete { // load full movie info
+                APIService.get(with: movie.id).subscribe(onNext: { [unowned self] movie in
+                    // reload full movie
+                    self.movie = movie
                 }, onError: { [unowned self] error in
-                    DispatchQueue.main.async {
-                        self.handle(error: error)
-                    }
+                    self.handle(error: error)
                 }).disposed(by: self.disposeBag)
-            } else if let movie = movie, movie.isComplete, movie.realm == nil, let realm = try? Realm() {
-                // Add visited movie to realm for persistency
+
+            } else if let movie = movie, movie.isComplete, movie.realm == nil,
+                let realm = try? Realm(), realm.object(ofType: Movie.self, forPrimaryKey: movie.id) == nil {
+                // add visited movies to realm for persistency
                 movie.visitedDate = Date()
                 try? realm.write {
                     realm.add(movie)

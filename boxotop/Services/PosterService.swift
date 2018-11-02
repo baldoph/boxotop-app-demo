@@ -12,7 +12,6 @@ import UIKit
 import SwiftHTTP
 
 class PosterService: Singleton {
-
     required init() {}
 
     private var cache = NSCache<NSString, UIImage>()
@@ -28,28 +27,28 @@ class PosterService: Singleton {
         let imageKey = movie.id as NSString
 
         return Observable<UIImage?>.create({ observer -> Disposable in
-            // Check if in cache return an image synchronously
+            // check if in cache return an image synchronously
             if let cached = self.cache.object(forKey: imageKey) {
                 observer.onNext(cached)
                 return Disposables.create()
             }
 
-            // Check if on disk and return an image synchronously
+            // check if on disk and return an image synchronously
             let imageURL = self.posterDirectory.appendingPathComponent(movie.id)
-            if let onDisk = UIImage(contentsOfFile: imageURL.path) {
-                self.cache.setObject(onDisk, forKey: imageKey)
-                observer.onNext(onDisk)
+            if let onDiskData = try? Data(contentsOf: imageURL), let onDiskImage = UIImage(data: onDiskData, scale: UIScreen.main.scale) {
+                self.cache.setObject(onDiskImage, forKey: imageKey)
+                observer.onNext(onDiskImage)
                 return Disposables.create()
             }
 
-            // Download image
+            // download image
             if let resourceURL = movie.posterURL {
                 
                 let http = HTTP.New(resourceURL, method: .GET)
                 http?.run { response in
                     if let err = response.error {
                         observer.onError(err)
-                    } else if let image = UIImage(data: response.data) {
+                    } else if let image = UIImage(data: response.data, scale: UIScreen.main.scale) {
                         try? response.data.write(to: imageURL)
                         self.cache.setObject(image, forKey: imageKey)
                         observer.onNext(image)

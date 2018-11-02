@@ -34,6 +34,8 @@ class DetailsViewController: UIViewController, Bindable {
 
         title = "details-controller-title".localized
 
+        posterView.applyStyleWithRoundedCordners()
+        
         audienceRatingsView.settings.updateOnTouch = false
         audienceRatingsView.settings.fillMode = .precise
         criticsRatingView.settings.updateOnTouch = false
@@ -61,7 +63,7 @@ class DetailsViewController: UIViewController, Bindable {
         viewModel.director.asObservable().bind(to: directorLabel.rx.text).disposed(by: disposeBag)
         viewModel.cast.asObservable().bind(to: castLabel.rx.text).disposed(by: disposeBag)
         viewModel.plot.asObservable().bind(to: plotLabel.rx.text).disposed(by: disposeBag)
-        viewModel.image.asObservable().bind(to: posterView.rx.image).disposed(by: disposeBag)
+        viewModel.image.asObservable().map { $0 ?? UIImage(named: "default-poster-image") }.bind(to: posterView.rx.image).disposed(by: disposeBag)
 
         viewModel.audienceRating.asObservable().subscribe(onNext: { value in
             if let value = value {

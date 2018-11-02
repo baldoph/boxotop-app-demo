@@ -11,6 +11,10 @@ import RxSwift
 
 class SearchMovieCell: UITableViewCell {
     static let identifier = "SearchMovieCell"
+    
+    @IBOutlet weak var titleLabel: UILabel!
+    @IBOutlet weak var yearLabel: UILabel!
+    @IBOutlet weak var posterView: UIImageView!
 
     private var disposeBag: DisposeBag!
 
@@ -30,17 +34,8 @@ class SearchMovieCell: UITableViewCell {
         }
     }
 
-    @IBOutlet weak var titleLabel: UILabel!
-    @IBOutlet weak var yearLabel: UILabel!
-    @IBOutlet weak var posterView: UIImageView!
-
     override func awakeFromNib() {
         super.awakeFromNib()
-
-        posterView.layer.cornerRadius = 4
-        posterView.layer.borderWidth = 1 / UIScreen.main.scale
-        posterView.layer.borderColor = UIColor.lightGray.cgColor
-        posterView.layer.shouldRasterize = true
-        posterView.layer.rasterizationScale = UIScreen.main.scale
+        posterView.applyStyleWithRoundedCordners()
     }
 }

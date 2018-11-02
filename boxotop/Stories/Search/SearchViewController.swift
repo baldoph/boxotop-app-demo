@@ -9,7 +9,6 @@
 import UIKit
 import RxSwift
 import RxCocoa
-import SnapKit
 
 class SearchViewController: UITableViewController, Bindable {
     typealias Model = SearchViewModel
@@ -52,13 +51,12 @@ class SearchViewController: UITableViewController, Bindable {
             }))
             actionSheet.addAction(UIAlertAction(title: "cancel-button-action".localized, style: .cancel, handler: nil))
             self.present(actionSheet, animated: true, completion: nil)
-
         }).disposed(by: disposeBag)
     }
 
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        noResultsTopConstraint.constant = 64
+        noResultsTopConstraint.constant = topLayoutGuide.length
     }
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -102,7 +100,12 @@ class SearchViewController: UITableViewController, Bindable {
         return cell
     }
 
+    override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        return viewModel.sectionTitle
+    }
+
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        searchBar.endEditing(true)
         let movie = viewModel.results.value[indexPath.row]
         performSegue(withIdentifier: ShowDetailsSegueName, sender: movie)
     }

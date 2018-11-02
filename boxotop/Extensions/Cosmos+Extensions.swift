@@ -9,6 +9,8 @@
 import UIKit
 import Cosmos
 
+// Cosmos is a framework to display starred ratings.
+
 extension CosmosView {
     func set(color: UIColor) {
         settings.emptyBorderColor = color

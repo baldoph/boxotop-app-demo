@@ -10,6 +10,7 @@
 "empty-history-header" = "Empty history";
 "empty-history-subtitle" = "Movies you lookup appear here";
 "no-results-title" = "No results 🕵️‍♀️";
+"history-section-title" = "Previously visited";
 
 "details-controller-title" = "Details";
 "details-release-date-title" = "Release date";
